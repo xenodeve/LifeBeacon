@@ -53,19 +53,79 @@ Join our community of developers creating universal apps.
 This project uses Firebase and Google Maps. To run this project locally, you need to set up the following configuration files:
 
 ### 1. Firebase Configuration (Android)
+
 The `google-services.json` file is required for Firebase services but is ignored by git for security.
+
+**Option A: Use the example file**
 1. Copy the example file:
    ```bash
    cp google-services.example.json google-services.json
    ```
-2. Open `google-services.json` and replace the placeholder values (`YOUR_PROJECT_NUMBER`, `YOUR_API_KEY`, etc.) with your actual Firebase project details.
-   - Alternatively, download the `google-services.json` file from your Firebase Console (Project Settings > General > Your Apps).
+2. Open `google-services.json` and replace the placeholder values:
+   - `YOUR_PROJECT_NUMBER` → Your Firebase project number
+   - `YOUR_PROJECT_ID` → Your Firebase project ID
+   - `YOUR_STORAGE_BUCKET` → Your storage bucket name
+   - `YOUR_MOBILE_SDK_APP_ID` → Your app's SDK ID
+   - `YOUR_API_KEY` → Your Firebase API key
+   - `com.your.package.name` → `com.lifebeacon.mobile`
+
+**Option B: Download from Firebase Console (Recommended)**
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Select your project (or create a new one)
+3. Go to **Project Settings** > **General**
+4. Scroll down to **Your apps** section
+5. Click on the Android icon to add an Android app (if not already added)
+6. Enter package name: `com.lifebeacon.mobile`
+7. Download the `google-services.json` file
+8. Place it in the `LifeBeacon_Mobile/` directory
 
 ### 2. Google Maps API Key & App Config
+
 The `app.json` file contains sensitive configuration like the Google Maps API Key and is ignored by git.
+
+**Step 1: Get Google Maps API Key**
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable **Maps SDK for Android**:
+   - Go to **APIs & Services** > **Library**
+   - Search for "Maps SDK for Android"
+   - Click **Enable**
+4. Create API Key:
+   - Go to **APIs & Services** > **Credentials**
+   - Click **Create Credentials** > **API Key**
+   - Copy the API key
+5. (Optional) Restrict the API key:
+   - Click on the created API key
+   - Under **Application restrictions**, select **Android apps**
+   - Add package name: `com.lifebeacon.mobile`
+   - Add your SHA-1 certificate fingerprint (get it with `keytool -list -v -keystore ~/.android/debug.keystore`)
+
+**Step 2: Configure app.json**
 1. Copy the example file:
    ```bash
    cp app.example.json app.json
    ```
-2. Open `app.json` and replace `YOUR_GOOGLE_MAPS_API_KEY` with your valid API Key (enabled for Maps SDK for Android).
-3. (Optional) Update `YOUR_EAS_PROJECT_ID` if you are using EAS Build.
+2. Open `app.json` and replace the following values:
+   - `YOUR_GOOGLE_MAPS_API_KEY` → Your Google Maps API key from Step 1
+   - `YOUR_EAS_PROJECT_ID` → Your EAS project ID (if using EAS Build, otherwise leave as is)
+
+**Example:**
+```json
+{
+  "expo": {
+    "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyABCDEFGHIJKLMNOPQRSTUVWXYZ1234567"
+        }
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "12345678-1234-1234-1234-123456789abc"
+      }
+    }
+  }
+}
+```
+
