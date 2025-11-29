@@ -56,3 +56,6 @@ GoogleService-Info.plist
 # Keystore
 *.keystore
 *.jks
+
+# App Config (Secrets)
+app.json

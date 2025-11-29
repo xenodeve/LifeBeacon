@@ -90,8 +90,9 @@ npm install
     - คัดลอก `google-services.example.json` เป็น `google-services.json`
     - ใส่ค่าจาก Firebase Project ของคุณ
 
-2.  **Google Maps API Key**:
-    - ตรวจสอบ `app.json` และใส่ API Key ที่เปิดใช้งาน Maps SDK for Android
+2.  **Google Maps API Key & App Config**:
+    - คัดลอก `app.example.json` เป็น `app.json`
+    - ใส่ Google Maps API Key (Android SDK) แทนที่ `YOUR_GOOGLE_MAPS_API_KEY`
 
 ### 3. รันแอปพลิเคชัน
 

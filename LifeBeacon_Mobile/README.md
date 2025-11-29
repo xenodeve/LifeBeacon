@@ -61,5 +61,11 @@ The `google-services.json` file is required for Firebase services but is ignored
 2. Open `google-services.json` and replace the placeholder values (`YOUR_PROJECT_NUMBER`, `YOUR_API_KEY`, etc.) with your actual Firebase project details.
    - Alternatively, download the `google-services.json` file from your Firebase Console (Project Settings > General > Your Apps).
 
-### 2. Google Maps API Key
-The Google Maps API Key is currently configured in `app.json`. Ensure you have a valid key with the necessary permissions (Maps SDK for Android) enabled in your Google Cloud Console.
+### 2. Google Maps API Key & App Config
+The `app.json` file contains sensitive configuration like the Google Maps API Key and is ignored by git.
+1. Copy the example file:
+   ```bash
+   cp app.example.json app.json
+   ```
+2. Open `app.json` and replace `YOUR_GOOGLE_MAPS_API_KEY` with your valid API Key (enabled for Maps SDK for Android).
+3. (Optional) Update `YOUR_EAS_PROJECT_ID` if you are using EAS Build.
