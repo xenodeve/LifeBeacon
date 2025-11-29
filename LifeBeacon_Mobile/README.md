@@ -46,5 +46,20 @@ To learn more about developing your project with Expo, look at the following res
 
 Join our community of developers creating universal apps.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## Setup for Contributors
+
+This project uses Firebase and Google Maps. To run this project locally, you need to set up the following configuration files:
+
+### 1. Firebase Configuration (Android)
+The `google-services.json` file is required for Firebase services but is ignored by git for security.
+1. Copy the example file:
+   ```bash
+   cp google-services.example.json google-services.json
+   ```
+2. Open `google-services.json` and replace the placeholder values (`YOUR_PROJECT_NUMBER`, `YOUR_API_KEY`, etc.) with your actual Firebase project details.
+   - Alternatively, download the `google-services.json` file from your Firebase Console (Project Settings > General > Your Apps).
+
+### 2. Google Maps API Key
+The Google Maps API Key is currently configured in `app.json`. Ensure you have a valid key with the necessary permissions (Maps SDK for Android) enabled in your Google Cloud Console.
